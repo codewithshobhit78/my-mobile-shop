@@ -36,3 +36,78 @@ if ('serviceWorker' in navigator) {
   });
 
 }
+
+/* IMPORTED PHONES */
+
+const mainVideo =
+document.getElementById('mainVideo');
+
+const mainImage =
+document.getElementById('mainImage');
+
+const phoneTitle =
+document.getElementById('phoneTitle');
+
+const phoneDesc =
+document.getElementById('phoneDesc');
+
+const thumbs =
+document.querySelectorAll('.thumb');
+
+
+/* SHOW REEL */
+
+function showReel(){
+
+  mainVideo.style.display = 'block';
+
+  mainImage.style.display = 'none';
+
+  mainVideo.play();
+
+  phoneTitle.innerText =
+  'Imported Collection';
+
+  phoneDesc.innerText =
+  'Latest Premium Smartphones Available';
+
+  removeActive();
+
+  thumbs[0].classList.add('active-thumb');
+
+}
+
+
+/* SHOW PHONE */
+
+function showPhone(image,title,desc){
+
+  mainVideo.pause();
+
+  mainVideo.style.display = 'none';
+
+  mainImage.style.display = 'block';
+
+  mainImage.src = image;
+
+  phoneTitle.innerText = title;
+
+  phoneDesc.innerText = desc;
+
+  removeActive();
+
+  event.currentTarget.classList
+  .add('active-thumb');
+
+}
+
+
+/* REMOVE ACTIVE */
+
+function removeActive(){
+
+  thumbs.forEach((thumb)=>{
+    thumb.classList.remove('active-thumb');
+  });
+
+}
